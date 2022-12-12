@@ -8,6 +8,11 @@ function Wallet({ address, setAddress, balance, setBalance, privateKey, setPriva
     const _privateKey = evt.target.value;
     setPrivateKey(_privateKey)
 
+    /*
+    * Verify and send ETH address to the server
+    * It ensure that always the balances will be subtracted 
+    * from the person who have the private key
+    */
     const pubKey = getPublicKey(hexToBytes(privateKey));
     const ethAddress = `0x${bytesToHex(keccak256(pubKey).slice(-20))}`;
     setAddress(ethAddress);
