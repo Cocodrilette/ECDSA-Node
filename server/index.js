@@ -1,15 +1,16 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
+
+const app = express();
 const port = 3042;
 
 app.use(cors());
 app.use(express.json());
 
 const balances = {
-  "0x1": 100,
-  "0x2": 50,
-  "0x3": 75,
+  "0x17a13c0afe26ca530b6be977143070d77609abc9": 100, // priv:  bdb944367c9e1b46ebff9637ca7a59d61e138d4dfa87fd0c6161470dbfb405ad
+  "0x7682d4488c2e453ec1f9c314cb32dfb2ef2b58b4": 50, // priv: 71ccee0e8f481b18f9a56239d4f50ae62cd993aff23bc0f77b4cc08f5179514f
+  "0xf0a79a8fac623537b8f6c61fd1183b38022b9e1b": 75, // priv: 01067011b2ab1c39d4cda24c90891b16ef1f0ce36ff3aa13521915a292521401
 };
 
 app.get("/balance/:address", (req, res) => {
