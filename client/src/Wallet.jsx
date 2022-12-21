@@ -43,15 +43,18 @@ function Wallet(
     <div className="container wallet">
       <h1>Your Wallet</h1>
 
-      <label>
-        Wallet address
-        <div className="inputs-container">
+      <div className="inputs-container">
+        <label>
+          Wallet address
           <input
             placeholder="Your wallet address..."
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           ></input>
-          {canSign ? (
+        </label>
+        {canSign ? (
+          <label>
+            Sign the transaction
             <input
               placeholder="Your private key"
               value={privateKey}
@@ -59,9 +62,9 @@ function Wallet(
               type="password"
             >
             </input>
-          ) : <></>}
-        </div>
-      </label>
+          </label>
+        ) : <></>}
+      </div>
 
       <div className="balance">Balance: {balance}</div>
     </div>
